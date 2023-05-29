@@ -2,7 +2,6 @@ const TOKEN = process.env["DISCORD_TOKEN"];
 const { Client, Events, GatewayIntentBits } = require("discord.js");
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildVoiceStates] });
-const run = require("./server.js"); // for keeping alive
 
 function delay(time) {
 	return new Promise(resolve => setTimeout(resolve, time));
@@ -43,4 +42,3 @@ client.on(Events.VoiceStateUpdate, async (before, after) => {
 });
 
 client.login(TOKEN);
-run();
